@@ -3,7 +3,7 @@ if(!localStorage.getItem('usuarios')){
         {usuario: 'admin', senha:  '123'},
         {usuario: 'Fernando', senha: '1322'}
     ];
-    localStorage.setItem('usuarios', JSON.stringify(bancoInicial));
+    localStorage.getItem('usuarios', JSON.stringify(bancoInicial));
 }
 
 document.getElementById('form').addEventListener('submit', function(e){
@@ -19,9 +19,11 @@ document.getElementById('form').addEventListener('submit', function(e){
     });
 
     if(usuarioEncontrado){
-        alert('Login realizado com sucesso!!! bem vindo'+ usuarioDigitado)
+        localStorage.getItem('usuarioLogado', usuarioDigitado);
+        window.location.href ='home.html';
     }else{
-        alert('Usuario ou senha incorreta');
+        alert ('usuario ou senha incorreta');
+    
     }
 
 });
